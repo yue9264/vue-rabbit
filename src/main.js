@@ -14,7 +14,6 @@ getCategory().then(res => {
 
 const app = createApp(App)
 
-let foo
 
 app.use(createPinia())
 app.use(router)
