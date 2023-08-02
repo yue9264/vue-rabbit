@@ -1,1 +1,4 @@
-<template>I'm home page</template>
+<template>
+    I'm home page
+    <div style="height: 1200px;"></div>
+</template>
