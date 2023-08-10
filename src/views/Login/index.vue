@@ -45,7 +45,7 @@ const router = useRouter()
 const doLogin = () => {
     const {account, password} = form.value
     formRef.value.validate(async(valid) => {
-        console.log(valid)
+        console.log('valid'+valid)
         //以valid作为判断条件，如果通过校验才执行登录逻辑
         if(valid) {
             await userStore.getUserInfo({account, password})
