@@ -219,4 +219,4 @@ const cartStore = useCartStore()
     }
   }
 }
-</style>
+</style>@/stores/cart

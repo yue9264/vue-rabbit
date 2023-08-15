@@ -215,4 +215,4 @@ const allCheck= (selected) => {
   }
 
 }
-</style>
+</style>@/stores/cart
