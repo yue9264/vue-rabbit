@@ -3,7 +3,7 @@ import { ref } from 'vue';
 import { useMouseInElement } from '@vueuse/core';
 import { watch } from 'vue';
 
-// 图片列表
+// 图片列表了解
 defineProps({
   imageList:{
     type: Array,
