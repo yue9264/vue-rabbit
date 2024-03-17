@@ -15,7 +15,7 @@ const categoryStore = useCategoryStore()
         <!--导航区域-->
         <ul class="app-header-nav">
             <li class="home">
-                <RouterLink to="/">首页</RouterLink>
+                <RouterLink to="/">Home</RouterLink>
             </li>
             <li class="home" v-for="item in categoryStore.categoryList" :key="item.id">
                 <RouterLink active-class="active" :to="`/category/${item.id}`">{{item.name}}</RouterLink>
@@ -23,8 +23,8 @@ const categoryStore = useCategoryStore()
         </ul>
 
         <div class="right">
-            <RouterLink to="/">品牌</RouterLink>
-            <RouterLink to="/">专题</RouterLink>
+            <RouterLink to="/">Brands</RouterLink>
+            <RouterLink to="/">Specials</RouterLink>
         </div>
     </div>
   </div>

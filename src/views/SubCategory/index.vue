@@ -55,7 +55,7 @@ const load = async() => {
     <!-- 面包屑 -->
     <div class="bread-container">
       <el-breadcrumb separator=">">
-        <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+        <el-breadcrumb-item :to="{ path: '/' }">Home</el-breadcrumb-item>
         <el-breadcrumb-item :to="{ path: `/category/${categoryData.parentId}`}">{{ categoryData.parentName }}
         </el-breadcrumb-item>
         <el-breadcrumb-item>{{ categoryData.name }}</el-breadcrumb-item>
@@ -63,9 +63,9 @@ const load = async() => {
     </div>
     <div class="sub-container">
       <el-tabs v-model="reqData.sortField" @tab-change="tabChange">
-        <el-tab-pane label="最新商品" name="publishTime"></el-tab-pane>
-        <el-tab-pane label="最高人气" name="orderNum"></el-tab-pane>
-        <el-tab-pane label="评论最多" name="evaluateNum"></el-tab-pane>
+        <el-tab-pane label="New Products" name="publishTime"></el-tab-pane>
+        <el-tab-pane label="Most Recommended" name="orderNum"></el-tab-pane>
+        <el-tab-pane label="Most Comments" name="evaluateNum"></el-tab-pane>
       </el-tabs>
       <div class="body" v-infinite-scroll="load" :infinite-scroll-disabled="disabled">
          <!-- 商品列表-->

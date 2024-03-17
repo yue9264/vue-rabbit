@@ -66,34 +66,34 @@ const createOrder = async() => {
     <div class="container">
       <div class="wrapper">
         <!-- 收货地址 -->
-        <h3 class="box-title">收货地址</h3>
+        <h3 class="box-title">Shipping Address</h3>
         <div class="box-body">
           <div class="address">
             <div class="text">
-              <div class="none" v-if="!curAddress">您需要先添加收货地址才可提交订单。</div>
+              <div class="none" v-if="!curAddress">You need to add a shipping address before submitting the order.</div>
               <ul v-else>
-                <li><span>收<i />货<i />人：</span>{{ curAddress.receiver }}</li>
-                <li><span>联系方式：</span>{{ curAddress.contact }}</li>
-                <li><span>收货地址：</span>{{ curAddress.fullLocation }} {{ curAddress.address }}</li>
+                <li><span>recipient<i /><i />：</span>{{ curAddress.receiver }}</li>
+                <li><span>Contact：</span>{{ curAddress.contact }}</li>
+                <li><span>shipping address：</span>{{ curAddress.fullLocation }} {{ curAddress.address }}</li>
               </ul>
             </div>
             <div class="action">
-              <el-button size="large" @click="showDialog = true">切换地址</el-button>
-              <el-button size="large" @click="addFlag = true">添加地址</el-button>
+              <el-button size="large" @click="showDialog = true">Change Address</el-button>
+              <el-button size="large" @click="addFlag = true">Add Address</el-button>
             </div>
           </div>
         </div>
         <!-- 商品信息 -->
-        <h3 class="box-title">商品信息</h3>
+        <h3 class="box-title">Item information</h3>
         <div class="box-body">
           <table class="goods">
             <thead>
               <tr>
-                <th width="520">商品信息</th>
-                <th width="170">单价</th>
-                <th width="170">数量</th>
-                <th width="170">小计</th>
-                <th width="170">实付</th>
+                <th width="520">Item information</th>
+                <th width="170">price</th>
+                <th width="170">quantity</th>
+                <th width="170">subtotal</th>
+                <th width="170">total</th>
               </tr>
             </thead>
             <tbody>
@@ -107,73 +107,73 @@ const createOrder = async() => {
                     </div>
                   </a>
                 </td>
-                <td>&yen;{{ i.price }}</td>
+                <td>${{ i.price }}</td>
                 <td>{{ i.price }}</td>
-                <td>&yen;{{ i.totalPrice }}</td>
-                <td>&yen;{{ i.totalPayPrice }}</td>
+                <td>${{ i.totalPrice }}</td>
+                <td>${{ i.totalPayPrice }}</td>
               </tr>
             </tbody>
           </table>
         </div>
         <!-- 配送时间 -->
-        <h3 class="box-title">配送时间</h3>
+        <h3 class="box-title">Delivery time</h3>
         <div class="box-body">
-          <a class="my-btn active" href="javascript:;">不限送货时间：周一至周日</a>
-          <a class="my-btn" href="javascript:;">工作日送货：周一至周五</a>
-          <a class="my-btn" href="javascript:;">双休日、假日送货：周六至周日</a>
+          <a class="my-btn active" href="javascript:;">Delivery available any time: Monday to Sunday</a>
+          <a class="my-btn" href="javascript:;">Delivery on weekdays: Monday to Friday</a>
+          <a class="my-btn" href="javascript:;">Weekend and Holiday Delivery: Saturday to Sunday</a>
         </div>
         <!-- 支付方式 -->
-        <h3 class="box-title">支付方式</h3>
+        <h3 class="box-title">Payment Method</h3>
         <div class="box-body">
-          <a class="my-btn active" href="javascript:;">在线支付</a>
-          <a class="my-btn" href="javascript:;">货到付款</a>
-          <span style="color:#999">货到付款需付5元手续费</span>
+          <a class="my-btn active" href="javascript:;">checkout online</a>
+          <a class="my-btn" href="javascript:;">pay on delivery</a>
+          <span style="color:#999">There is a $5 handling charge for cash on delivery</span>
         </div>
         <!-- 金额明细 -->
-        <h3 class="box-title">金额明细</h3>
+        <h3 class="box-title">Details of Amount</h3>
         <div class="box-body">
           <div class="total">
             <dl>
-              <dt>商品件数：</dt>
-              <dd>{{ checkInfo.summary?.goodsCount }}件</dd>
+              <dt>Number of Items：</dt>
+              <dd>{{ checkInfo.summary?.goodsCount }}items</dd>
             </dl>
             <dl>
-              <dt>商品总价：</dt>
+              <dt>Total Price of Items：</dt>
               <dd>¥{{ checkInfo.summary?.totalPrice.toFixed(2) }}</dd>
             </dl>
             <dl>
-              <dt>运<i></i>费：</dt>
+              <dt>Delivery<i></i>fee：</dt>
               <dd>¥{{ checkInfo.summary?.postFee.toFixed(2) }}</dd>
             </dl>
             <dl>
-              <dt>应付总额：</dt>
+              <dt>Total Amount Due：</dt>
               <dd class="price">{{ checkInfo.summary?.totalPayPrice.toFixed(2) }}</dd>
             </dl>
           </div>
         </div>
         <!-- 提交订单 -->
         <div class="submit">
-          <el-button type="primary" @click="createOrder" size="large" >提交订单</el-button>
+          <el-button type="primary" @click="createOrder" size="large" >Submit order</el-button>
         </div>
       </div>
     </div>
   </div>
   <!-- 切换地址 -->
-  <el-dialog v-model="showDialog" title="切换收货地址" width="30%" center>
+  <el-dialog v-model="showDialog" title="change shipping address" width="30%" center>
     <div class="addressWrapper">
         <div class="text item" :class="{active: activeAddress.id === item.id}" @click="switchAddress(item)"
          v-for="item in checkInfo.userAddresses"  :key="item.id">
         <ul>
-        <li><span>收<i />货<i />人：</span>{{ item.receiver }} </li>
-        <li><span>联系方式：</span>{{ item.contact }}</li>
-        <li><span>收货地址：</span>{{ item.fullLocation + item.address }}</li>
+        <li><span>Recipient<i /><i />：</span>{{ item.receiver }} </li>
+        <li><span>Contact Information：</span>{{ item.contact }}</li>
+        <li><span>Shipping Address：</span>{{ item.fullLocation + item.address }}</li>
         </ul>
         </div>
     </div>
     <template #footer>
         <span class="dialog-footer">
-        <el-button>取消</el-button>
-        <el-button type="primary" @click="confirm">确定</el-button>
+        <el-button>Cancel</el-button>
+        <el-button type="primary" @click="confirm">Confirm</el-button>
         </span>
     </template>
     </el-dialog>

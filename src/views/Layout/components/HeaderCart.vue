@@ -21,7 +21,7 @@ const cartStore = useCartStore()
                 <p class="attr ellipsis">{{ i.attrsText }}</p>
             </div>
             <div class="right">
-                <p class="price">&yen;{{ i.price }}</p>
+                <p class="price">${{ i.price }}</p>
                 <p class="count">x{{ i.count }}</p>
             </div>
             </RouterLink>
@@ -31,10 +31,10 @@ const cartStore = useCartStore()
       </div>
       <div class="foot">
         <div class="total">
-          <p>共 {{ cartStore.allCount }} 件商品</p>
-          <p>&yen; {{ cartStore.allPrice.toFixed(2) }} </p>
+          <p>subtotal {{ cartStore.allCount }} item</p>
+          <p>$ {{ cartStore.allPrice.toFixed(2) }} </p>
         </div>
-        <el-button size="large" type="primary" @click="$router.push('/cartlist')">去购物车结算</el-button>
+        <el-button size="large" type="primary" @click="$router.push('/cartlist')">go to cart</el-button>
       </div>
     </div>
 </div>

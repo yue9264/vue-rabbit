@@ -27,29 +27,29 @@ const payUrl = `${baseURL}pay/aliPay?orderId=${route.query.id}&redirect=${redire
       <div class="pay-info">
         <span class="icon iconfont icon-queren2"></span>
         <div class="tip">
-          <p>订单提交成功！请尽快完成支付。</p>
-          <p>支付还剩 <span>{{ formatTime }}</span>, 超时后将取消订单</p>
+          <p>Order submitted！Please make payments as soon as possible</p>
+          <p>payment time left <span>{{ formatTime }}</span>, Order will be canceled after timeout</p>
         </div>
         <div class="amount">
-          <span>应付总额：</span>
-          <span>¥{{ payInfo.payMoney?.toFixed(2) }}</span>
+          <span>Order total：</span>
+          <span>${{ payInfo.payMoney?.toFixed(2) }}</span>
         </div>
       </div>
       <!-- 付款方式 -->
       <div class="pay-type">
-        <p class="head">选择以下支付方式付款</p>
+        <p class="head">Select one of the following payment methods</p>
         <div class="item">
-          <p>支付平台</p>
+          <p>Payment platform</p>
           <a class="btn wx" href="javascript:;"></a>
           <a class="btn alipay" :href="payUrl"></a>
         </div>
         <div class="item">
-          <p>支付方式</p>
-          <a class="btn" href="javascript:;">招商银行</a>
-          <a class="btn" href="javascript:;">工商银行</a>
-          <a class="btn" href="javascript:;">建设银行</a>
-          <a class="btn" href="javascript:;">农业银行</a>
-          <a class="btn" href="javascript:;">交通银行</a>
+          <p>Payment Method</p>
+          <a class="btn" href="javascript:;">Visa</a>
+          <a class="btn" href="javascript:;">Master</a>
+          <a class="btn" href="javascript:;">American Express</a>
+          <a class="btn" href="javascript:;">Discover</a>
+          <a class="btn" href="javascript:;">Chase</a>
         </div>
       </div>
     </div>

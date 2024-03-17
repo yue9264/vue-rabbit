@@ -20,11 +20,11 @@ const form = ref({
 //2.准备规则对象
 const rules = {
     account: [
-        {required: true, message: '用户名不能为空', trigger: 'blur'}
+        {required: true, message: 'User name could not be null', trigger: 'blur'}
     ],
     password: [
-        {required: true, message:'密码不能为空', trigger: 'blur'},
-        {min: 6, max: 14, message:'密码长度为6-14个字符', trigger: 'blur'},
+        {required: true, message:'Password could not be null', trigger: 'blur'},
+        {min: 6, max: 14, message:'password length should be between 6-14 characters', trigger: 'blur'},
     ],
     agree: [
         {
@@ -32,7 +32,7 @@ const rules = {
                 if(value){
                     callback()
                 } else {
-                    callback(new Error('请勾选协议'))
+                    callback(new Error('Please Select the Agreement'))
                 }
             }
         }

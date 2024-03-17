@@ -19,19 +19,19 @@ const confirm = () => {
                 <template v-if="userStore.userInfo.token">
                     <li><a href="javascript:;"><i class=" iconfront icon-user"></i>{{ userStore.userInfo.account }}</a> </li>
                     <li>
-                        <el-popconfirm @confirm="confirm" title="确认退出吗？" confirm-button-text="确认" cancel-button-text="取消">
+                        <el-popconfirm @confirm="confirm" title="Confirm to logout？" confirm-button-text="Yes" cancel-button-text="No">
                             <template #reference>
-                                <a href="javascript:;">退出登录</a>
+                                <a href="javascript:;">Log out</a>
                             </template>
                         </el-popconfirm>
                     </li>
-                    <li><a href="javascript:;">我的订单</a></li>
-                    <li><a href="javascript:;">会员中心</a></li>
+                    <li><a href="javascript:;">My orders</a></li>
+                    <li><a href="javascript:;">Membership center</a></li>
                 </template>
                 <template v-else>
-                    <li><a href="javascript:;" @click="$router.push('/login')">请先登录</a></li>
-                    <li><a href="javascript:;">帮助中心</a></li>
-                    <li><a href="javascript:;">关于我们</a></li>
+                    <li><a href="javascript:;" @click="$router.push('/login')">login</a></li>
+                    <li><a href="javascript:;">Help Center</a></li>
+                    <li><a href="javascript:;">About Us</a></li>
                 </template>
             </ul>
         </div>

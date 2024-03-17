@@ -55,7 +55,7 @@ const addCart = () => {
     <div class="container" v-if="goods.details">
       <div class="bread-container">
         <el-breadcrumb separator=">">
-          <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+          <el-breadcrumb-item :to="{ path: '/' }">Home</el-breadcrumb-item>
           <el-breadcrumb-item :to="{ path: `/category/${goods.categories[1].id}` }">{{goods.categories[1].name}}</el-breadcrumb-item>
           <el-breadcrumb-item :to="{ path: `/category/${goods.categories[0].id}` }">{{goods.categories[0].name}}</el-breadcrumb-item>
           <el-breadcrumb-item>{{goods.name}}</el-breadcrumb-item>
@@ -71,24 +71,24 @@ const addCart = () => {
               <!-- 统计数量 -->
               <ul class="goods-sales">
                 <li>
-                  <p>销量人气</p>
+                  <p>Sales Popularity</p>
                   <p> {{ goods.salesCount }}+ </p>
-                  <p><i class="iconfont icon-task-filling"></i>销量人气</p>
+                  <p><i class="iconfont icon-task-filling"></i>Sales Popularity</p>
                 </li>
                 <li>
-                  <p>商品评价</p>
+                  <p>Comments</p>
                   <p>{{goods.commentCount}}+</p>
-                  <p><i class="iconfont icon-comment-filling"></i>查看评价</p>
+                  <p><i class="iconfont icon-comment-filling"></i>Check Comments</p>
                 </li>
                 <li>
-                  <p>收藏人气</p>
+                  <p>Favorite Popularity</p>
                   <p>{{goods.collectCount}}+</p>
-                  <p><i class="iconfont icon-favorite-filling"></i>收藏商品</p>
+                  <p><i class="iconfont icon-favorite-filling"></i>Favorite Items</p>
                 </li>
                 <li>
-                  <p>品牌信息</p>
+                  <p>Brand Information</p>
                   <p>{{goods.brand.name}}</p>
-                  <p><i class="iconfont icon-dynamic-filling"></i>品牌主页</p>
+                  <p><i class="iconfont icon-dynamic-filling"></i>Brand homepage</p>
                 </li>
               </ul>
             </div>
@@ -102,16 +102,16 @@ const addCart = () => {
               </p>
               <div class="g-service">
                 <dl>
-                  <dt>促销</dt>
-                  <dd>12月好物放送，App领券购买直降120元</dd>
+                  <dt>Sales</dt>
+                  <dd>December Specials: Get a coupon on the App for a $12 discount on purchase.</dd>
                 </dl>
                 <dl>
-                  <dt>服务</dt>
+                  <dt>Service</dt>
                   <dd>
-                    <span>无忧退货</span>
-                    <span>快速退款</span>
-                    <span>免费包邮</span>
-                    <a href="javascript:;">了解详情</a>
+                    <span>Returns</span>
+                    <span>Quick Refund</span>
+                    <span>Free Shipping</span>
+                    <a href="javascript:;">View Details</a>
                   </dd>
                 </dl>
               </div>
@@ -122,7 +122,7 @@ const addCart = () => {
               <!-- 按钮组件 -->
               <div>
                 <el-button size="large" @click="addCart" class="btn">
-                  加入购物车
+                  Add to cart
                 </el-button>
               </div>
 
@@ -133,7 +133,7 @@ const addCart = () => {
               <!-- 商品详情 -->
               <div class="goods-tabs">
                 <nav>
-                  <a>商品详情</a>
+                  <a>Product Details</a>
                 </nav>
                 <div class="goods-detail">
                   <!-- 属性 -->

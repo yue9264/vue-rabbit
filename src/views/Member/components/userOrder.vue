@@ -43,12 +43,12 @@ const pageChange = (page) => {
 
 const formatPayState = (paystate) => {
   const stateMap = {
-    1: '待付款',
-    2: '待发货',
-    3: '待收货',
-    4: '待评价',
-    5: '已完成',
-    6: '已取消'
+    1: 'Pending Payment',
+    2: 'Ready to Ship',
+    3: 'Awaiting Delivery',
+    4: 'Awaiting Evaluation',
+    5: 'Completed',
+    6: 'Cancelled'
   }
   return stateMap[paystate]
 }
@@ -63,18 +63,18 @@ const formatPayState = (paystate) => {
 
       <div class="main-container">
         <div class="holder-container" v-if="orderList.length === 0">
-          <el-empty description="暂无订单数据" />
+          <el-empty description="No Order Data Available" />
         </div>
         <div v-else>
           <!-- 订单列表 -->
           <div class="order-item" v-for="order in orderList" :key="order.id">
             <div class="head">
-              <span>下单时间：{{ order.createTime }}</span>
-              <span>订单编号：{{ order.id }}</span>
+              <span>Order time：{{ order.createTime }}</span>
+              <span>Order number：{{ order.id }}</span>
               <!-- 未付款，倒计时时间还有 -->
               <span class="down-time" v-if="order.orderState === 1">
                 <i class="iconfont icon-down-time"></i>
-                <b>付款截止: {{order.countdown}}</b>
+                <b>Payment due: {{order.countdown}}</b>
               </span>
             </div>
             <div class="body">
@@ -92,7 +92,7 @@ const formatPayState = (paystate) => {
                         <span>{{ item.attrsText }}</span>
                       </p>
                     </div>
-                    <div class="price">¥{{ item.realPay?.toFixed(2) }}</div>
+                    <div class="price">${{ item.realPay?.toFixed(2) }}</div>
                     <div class="count">x{{ item.quantity }}</div>
                   </li>
                 </ul>
@@ -100,36 +100,36 @@ const formatPayState = (paystate) => {
               <div class="column state">
                 <p>{{ formatPayState(order.orderState) }}</p>
                 <p v-if="order.orderState === 3">
-                  <a href="javascript:;" class="green">查看物流</a>
+                  <a href="javascript:;" class="green">Check the Logistics</a>
                 </p>
                 <p v-if="order.orderState === 4">
-                  <a href="javascript:;" class="green">评价商品</a>
+                  <a href="javascript:;" class="green">Evaluation</a>
                 </p>
                 <p v-if="order.orderState === 5">
-                  <a href="javascript:;" class="green">查看评价</a>
+                  <a href="javascript:;" class="green">Comments</a>
                 </p>
               </div>
               <div class="column amount">
-                <p class="red">¥{{ order.payMoney?.toFixed(2) }}</p>
-                <p>（含运费：¥{{ order.postFee?.toFixed(2) }}）</p>
-                <p>在线支付</p>
+                <p class="red">${{ order.payMoney?.toFixed(2) }}</p>
+                <p>（shipping&handling included：${{ order.postFee?.toFixed(2) }}）</p>
+                <p>Checkout Online</p>
               </div>
               <div class="column action">
                 <el-button  v-if="order.orderState === 1" type="primary"
                   size="small">
-                  立即付款
+                  Place your order
                 </el-button>
                 <el-button v-if="order.orderState === 3" type="primary" size="small">
-                  确认收货
+                  Confirm Delivery
                 </el-button>
-                <p><a href="javascript:;">查看详情</a></p>
+                <p><a href="javascript:;">Details</a></p>
                 <p v-if="[2, 3, 4, 5].includes(order.orderState)">
-                  <a href="javascript:;">再次购买</a>
+                  <a href="javascript:;">Order again</a>
                 </p>
                 <p v-if="[4, 5].includes(order.orderState)">
-                  <a href="javascript:;">申请售后</a>
+                  <a href="javascript:;">Apply for after-service</a>
                 </p>
-                <p v-if="order.orderState === 1"><a href="javascript:;">取消订单</a></p>
+                <p v-if="order.orderState === 1"><a href="javascript:;">Cancel Order</a></p>
               </div>
             </div>
           </div>

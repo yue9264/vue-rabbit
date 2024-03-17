@@ -41,7 +41,7 @@ onMounted( ()=>getHotList() )
       <img :src="item.picture" alt="" />
       <p class="name ellipsis">{{ item.name }}</p>
       <p class="desc ellipsis">{{ item.desc }}</p>
-      <p class="price">&yen;{{ item.price }}</p>
+      <p class="price">${{ item.price }}</p>
     </RouterLink>
   </div>
 </template>

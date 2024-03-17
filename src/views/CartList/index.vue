@@ -20,11 +20,11 @@ const allCheck= (selected) => {
               <th width="120">
                 <el-checkbox :model-value="cartStore.isAll" @change="allCheck"/>
               </th>
-              <th width="400">商品信息</th>
-              <th width="220">单价</th>
-              <th width="180">数量</th>
-              <th width="180">小计</th>
-              <th width="140">操作</th>
+              <th width="400">Product Information</th>
+              <th width="220">Price</th>
+              <th width="180">Quantity</th>
+              <th width="180">Subtotal</th>
+              <th width="140">operate</th>
             </tr>
           </thead>
           <!-- 商品列表 -->
@@ -45,19 +45,19 @@ const allCheck= (selected) => {
                 </div>
               </td>
               <td class="tc">
-                <p>&yen;{{ i.price }}</p>
+                <p>${{ i.price }}</p>
               </td>
               <td class="tc">
                 <el-input-number v-model="i.count" />
               </td>
               <td class="tc">
-                <p class="f16 red">&yen;{{ (i.price * i.count).toFixed(2) }}</p>
+                <p class="f16 red">${{ (i.price * i.count).toFixed(2) }}</p>
               </td>
               <td class="tc">
                 <p>
-                  <el-popconfirm title="确认删除吗?" confirm-button-text="确认" cancel-button-text="取消" @confirm="delCart(i)">
+                  <el-popconfirm title="confirm delete?" confirm-button-text="Yes" cancel-button-text="No" @confirm="delCart(i)">
                     <template #reference>
-                      <a href="javascript:;">删除</a>
+                      <a href="javascript:;">delete</a>
                     </template>
                   </el-popconfirm>
                 </p>
@@ -66,8 +66,8 @@ const allCheck= (selected) => {
             <tr v-if="cartStore.cartList.length === 0">
               <td colspan="6">
                 <div class="cart-none">
-                  <el-empty description="购物车列表为空">
-                    <el-button type="primary">随便逛逛</el-button>
+                  <el-empty description="Nothing in Shopping Cart">
+                    <el-button type="primary">take a look</el-button>
                   </el-empty>
                 </div>
               </td>
@@ -79,11 +79,11 @@ const allCheck= (selected) => {
       <!-- 操作栏 -->
       <div class="action">
         <div class="batch">
-          共 {{ cartStore.allCount }} 件商品，已选择 {{ cartStore.selectedCount }} 件，商品合计：
-          <span class="red">¥ {{ cartStore.selectedPrice.toFixed(2) }} </span>
+           {{ cartStore.allCount }} items，already chose {{ cartStore.selectedCount }} items，all together：
+          <span class="red">$ {{ cartStore.selectedPrice.toFixed(2) }} </span>
         </div>
         <div class="total">
-          <el-button size="large" type="primary" @click="$router.push('/checkout')">下单结算</el-button>
+          <el-button size="large" type="primary" @click="$router.push('/checkout')">place order</el-button>
         </div>
       </div>
     </div>
